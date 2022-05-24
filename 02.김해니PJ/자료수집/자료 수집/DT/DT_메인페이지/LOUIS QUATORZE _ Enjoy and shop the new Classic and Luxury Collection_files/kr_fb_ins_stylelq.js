@@ -1,0 +1,2 @@
+var ip="",hostname="",city="",region="",country="",loc="",org="";$.getJSON("http://ipinfo.io",function(o){if(ip=o.ip,hostname=o.hostname,city=o.city,region=o.region,country=o.country,loc=o.loc,org=o.org,country=="KR"){var i=window.location.search;(i.indexOf("url=fb")!=-1||i.indexOf("url=in")!=-1)&&(location.href="https://www.stylelq.com")}});
+//# sourceMappingURL=/s/files/1/0292/4072/1468/files/kr_fb_ins_stylelq.js.map?v=1626756038
