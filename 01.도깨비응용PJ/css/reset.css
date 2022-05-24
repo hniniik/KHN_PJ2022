@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* 초기화 CSS */
+/* 요소의 기본셋팅 초기화 */
+
+/* 1. 기본태그 초기화 - 마진,패딩 없애기 */
+html,body,h1,h2,h3,h4,h5,h6,ul,ol,dl,dt,dd{
+    margin: 0;
+    padding: 0;
+}
+/* 2. 헤딩태그 글자크기 초기화 */
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+    /* 100% - 기본글자크기 16px에 맞춤 */
+}
+/* 3. ul,ol 초기화 */
+ul,ol{
+    list-style: none;
+    /* 블릿, 숫자 표시 없앰 */
+}
