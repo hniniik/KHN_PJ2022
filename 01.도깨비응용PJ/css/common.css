@@ -4,13 +4,21 @@
 
 /************** 1. 상단영역 **************/
 .top{
-height: 127px;
+height: 120px;
+}
+/* 1-1. 메인로고 */
+#logo{
+    padding: 0;
+    text-align: center;
+}
+#logo img{
+    width: 200px;
 }
 /************** 2. 메인영역 **************/
 .cont{
-    height: 800px;
+    height: 300px;
 }
 /************** 3. 하단영역 **************/
 .info{
-    height: 241px   ;
+    height: 240px   ;
 }

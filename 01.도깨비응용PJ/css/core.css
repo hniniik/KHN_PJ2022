@@ -2,8 +2,36 @@
 /* 공통클래스 CSS */
 /* 공통클래스, 웹폰트 등 구현 */
 
+/* CDN 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Gugi&family=Nanum+Myeongjo:wght@700&display=swap');
+
+/* 
+    1. 설명내용
+    font-family: 'Gowun Batang', serif;
+    2. 설명타이틀
+    font-family: 'Gugi', cursive;
+    3. 강조내용
+    font-family: 'Nanum Myeongjo', serif;
+*/
+
+/* 스크롤바 디자인 클래스 */
+.scbar::-webkit-scrollbar{
+    width: 7px;
+}
+.scbar::-webkit-scrollbar-thumb{
+    background-color: #686868;
+    border-radius: 5px;
+}
+.scbar::-webkit-scrollbar-track{
+    background-color: #000;
+    border-radius: 5px;
+}
+
 /* 중앙 속박스 */
 .inbox{
-    width: 1200px;
+    /* width: 1200px; */
+    /* 최대가로크기(1200px)를 사용하여 크기가 작을때 auto로 전환됨 */
+    max-width: 1200px;
+    /* 마진에 의한 블록박스 중앙정렬  -> 마영오 */
     margin: 0 auto;
 }

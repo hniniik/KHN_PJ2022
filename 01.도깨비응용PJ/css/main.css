@@ -8,5 +8,257 @@
 
 /* 구현중 공사중 외곽선 표시 */
 body *{
-    outline: 1px dashed grey;
+    /* outline: 1px dashed grey; */
 }
+
+body {
+    background: url(../images/moon.png) no-repeat fixed 20% 30%/45%,
+    url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
+}
+
+/**************** 2. 메인영역 ****************/
+
+/* 컨텐츠 속박스 */
+.cont {
+    padding-top: 120px;
+    /* 최대가로크기 해제 */
+    max-width: none;
+}
+
+/* 캐릭터 부모박스 */
+#cbx {
+    width: 50%;
+    margin: 0 auto;
+    /* height: 500px; */
+    /* overflow: hidden; - 여기서는 안씀
+    -> 가상요소에 clear:both 사용할 것임! */
+    /* outline: 4px dotted red; */
+}
+
+.clb{
+    clear: both;
+}
+
+/* 가상요소로 clear설정하기! */
+/* ::after로 맨뒤에 가상요소 추가 */
+#cbx::after{
+    content: '';
+    display: block;
+    /* div와 비슷 - 안쓰면 span과 비슷 */
+    clear: both;
+    /* 주의: block요소에만 적용 */
+}
+
+
+/* 캐릭터박스 공통 */
+.cat1 {
+    width: 49%;
+    margin: 0.5%;
+    /* 블록박스 옆으로 흐르게 설정 */
+    float: left;
+}
+.cat2 {
+    width: 32%;
+    margin: 0.5%;
+    float: left;
+}
+/* 이미지 박스 */
+.ci1{
+    transition: margin-top .4s ease-out;
+}
+.ci2{
+    transition: margin-top .4s ease-out;
+}
+/* 캐릭터박스에 오버시 이미지박스 위로 이동하기 */
+.cat1:hover .ci1{
+    margin-top: -127px;
+}
+.cat2:hover .ci2{
+    margin-top: -57px;
+}
+
+/* 이미지박스 이미지 */
+.ci1>img{
+    width: 100%;
+}
+.ci2>img{
+    width: 100%;
+}
+
+.cat1 .ci1 img:first-child{
+    display: none;
+}
+.cat1:hover .ci1 img:first-child{
+    display: inline;
+}
+.cat1:hover .ci1 img:nth-child(2){
+    display: none;
+}
+
+.cat2 .ci2 img:first-child{
+    display: none;
+}
+.cat2:hover .ci2 img:first-child{
+    display: inline;
+}
+.cat2:hover .ci2 img:nth-child(2){
+    display: none;
+}
+
+/* 캐릭터 이름이미지 박스 */
+.ci1 span {
+    /* 블록으로 변경 - 부모박스 끝까지 차지 */
+    display: block;
+    /* 인라인요소 중앙정렬 */
+    text-align: center;
+    margin-top: -19%;
+}
+.ci2 span {
+    /* 블록으로 변경 - 부모박스 끝까지 차지 */
+    display: block;
+    /* 인라인요소 중앙정렬 */
+    text-align: center;
+    margin-top: -21%;
+}
+/* 이름이미지 사이즈 조정 */
+.ci1 span img {
+    width: 40%;
+}
+.ci2 span img {
+    width: 40%;
+}
+
+/* 이름이미지 중 첫번째 진한이미지 숨기기 */
+/* 가상클래스로 첫번째이미지 선택 :first-chlid */
+.ci1 span img:first-child{
+    display: none;
+}
+.ci2 span img:first-child{
+    display: none;
+}
+/* 마우스 오버시 가상클래스 :hover 
+- 첫번째 이름이미지 보이기 */
+.cat1:hover .ci1 span img:first-child{
+    /* 원래 display로 복귀 */
+    display: inline;
+}
+/* 마우스 오버시 마지막째 이름이미지 숨기기 */
+/* 가상클래스로 마지막째이미지 선택 :last-child */
+.cat1:hover .ci1 span img:last-child{
+    display: none;
+}
+.cat2:hover .ci2 span img:first-child{
+    display: inline;
+}
+.cat2:hover .ci2 span img:last-child{
+    display: none;
+}
+
+/* 캐릭터 설명박스 */
+.cd1{
+    height: 0;/* 150px <- 마우스 오버시 */
+    background: url(../images/eachBG.jpeg) no-repeat center/cover;
+    overflow-y: scroll;
+    margin-top: 5px;
+    border-radius: 15px 5px 5px 15px;
+    transition: height .4s ease-out;
+}
+.cd2{
+    height: 0;/* 110px <- 마우스 오버시 */
+    background: url(../images/eachBG.jpeg) no-repeat center/cover;
+    /* y축 스크롤 설정 */
+    overflow-y: scroll;
+    margin-top: 5px;
+    border-radius: 15px 5px 5px 15px;
+    /* 트랜지션 */
+    transition: height .4s ease-out;
+    /* transition: 
+    height .4s ease-out 1s,
+    background-color .5s ease-in-out 1.4s; */
+}
+
+
+
+/* 캐릭터박스에 마우스 오버시 설명박스 보이기 */
+.cat1:hover .cd1{
+    height: 150px;
+}
+.cat2:hover .cd2{
+    height: 110px;
+}
+/* 캐릭터 설명 타이틀 */
+.cd1 h3{
+    color: #ffa600;
+    font-family: 'Gugi', cursive;
+    font-size: 18px;
+    font-weight: normal;
+    /* 패딩: 위 양쪽 아래 */
+    padding: .7rem 1rem 0;
+}
+/* 가상요소로 타이틀 앞에 작은로고 넣기 */
+.cd1 h3::before{
+    display: inline-block;
+    content: '';
+    width: 12px;
+    height: 22px;
+    vertical-align: -3px;
+    margin-right: 5px;
+    /* background: 색이반고윙/크; */
+    background: url(../images/door.png) no-repeat center/cover;
+    /* outline: 1px solid red; */
+}
+.cd2 h3::before{
+    display: inline-block;
+    content: '';
+    width: 6px;
+    height: 12px;
+    vertical-align: -1px;
+    margin-right: 3px;
+    /* background: 색이반고윙/크; */
+    background: url(../images/door.png) no-repeat center/cover;
+    /* outline: 1px solid red; */
+}
+.cd2 h3{
+    color: #ffa600;
+    font-family: 'Gugi', cursive;
+    font-size: 12px;
+    font-weight: normal;
+    /* 패딩: 위 양쪽 아래 */
+    padding: .7rem 1rem 0;
+}
+/* 캐릭터 설명 문단 */
+.cd1 p{
+    color: #fff;
+    font-family: 'Gowun Batang', serif;
+    font-size: 9px;
+    line-height: 1.7;
+    padding: 12px;
+    text-align: justify;
+}
+.cd2 p{
+    color: #fff;
+    font-family: 'Gowun Batang', serif;
+    font-size: 8px;
+    line-height: 1.7;
+    padding: 10px;
+    text-align: justify;
+}
+/* 캐릭터 설명 강조문단 */
+.cd1 p b{
+    color: #ffd484;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.7;
+    padding: 10px;
+}
+.cd2 p b{
+    color: #ffd484;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 1.7;
+    padding: 10px;
+}
+
+
