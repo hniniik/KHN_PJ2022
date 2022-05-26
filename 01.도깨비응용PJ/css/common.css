@@ -65,7 +65,7 @@ background: #000e1d;
   /* 부모li에 마우스 오버시 상위메뉴 a요소 변경 */
   .gnb > ul > li:hover > a {
       border-bottom: 2px solid rgb(255, 170, 0);
-      padding-bottom: 4px;
+      padding-bottom: 5px;
     /* background-color: #c3e3ff;
     color: #000; */
   }
