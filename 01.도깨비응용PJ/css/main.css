@@ -85,17 +85,19 @@ body {
     width: 100%;
 }
 
-.cat1 .ci1 img:first-child{
+.ci1 img:first-child{
     display: none;
 }
+
 .cat1:hover .ci1 img:first-child{
     display: inline;
 }
+
 .cat1:hover .ci1 img:nth-child(2){
     display: none;
 }
 
-.cat2 .ci2 img:first-child{
+.ci2 img:first-child{
     display: none;
 }
 .cat2:hover .ci2 img:first-child{
