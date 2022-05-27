@@ -100,9 +100,11 @@ body {
 .ci2 img:first-child{
     display: none;
 }
+
 .cat2:hover .ci2 img:first-child{
     display: inline;
 }
+
 .cat2:hover .ci2 img:nth-child(2){
     display: none;
 }
