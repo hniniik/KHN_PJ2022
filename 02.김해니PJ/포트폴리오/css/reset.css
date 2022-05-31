@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* 김해니 포트폴리오 리셋 CSS - reset.css */
+/* 요소의 초기화 */
+
+html,body,h1,h2,h3,h4,h5,h6,ul,ol,dt,dd,p{
+    margin: 0;
+    padding: 0;
+}
+
+/* 가로스크롤 방지 */
+html,body{
+    width: 100vw;
+}
+
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+}
