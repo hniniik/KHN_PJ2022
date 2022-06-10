@@ -9,3 +9,30 @@
 /* font-family: 'Jost', sans-serif; */
 
 /************* 2. 공통 class *************/
+    
+/* 스크롤바 디자인 클래스 */
+/* -webkid- 벤더사명(크롬,사파리) 접두어
+(참고: -ms-(ie),-o-(오페라),-moz-(파이어폭스)) */
+.scbar::-webkit-scrollbar{
+    /* 전체 스크롤바 크기변경 */
+    width: 10px;
+    }
+    .scbar::-webkit-scrollbar-thumb{
+    /* 스크롤바 */
+    width: 5px;
+    background-color: #bcbcbc;
+    border-radius: 10px;
+    }
+    .scbar::-webkit-scrollbar-track{
+    /* 스크롤 트랙 */
+    background-color: #fff;
+    
+    outline: 1px solid #bcbcbc;
+    }
+
+    
+/* 중앙속박스 */
+.inbox{
+    /* width: 1200px; */
+    margin: 0 auto;
+}

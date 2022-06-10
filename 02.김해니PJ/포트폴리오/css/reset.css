@@ -1,15 +1,43 @@
 @charset "utf-8";
 /* 김해니 포트폴리오 리셋 CSS - reset.css */
-/* 요소의 초기화 */
 
-html,body,h1,h2,h3,h4,h5,h6,ul,ol,dt,dd,p{
+/* 초기화 */
+html,
+body,
+ul,
+ol {
     margin: 0;
     padding: 0;
 }
 
-/* 가로스크롤 방지 */
+ul,
+ol {
+    /* 리스트박스 기본3無
+    - 마진0, 패딩0, 리스트스타일없음 */
+    list-style: none;
+}
+/* 가로스크롤 생김 방지!(특히 모바일) */
 html,body{
     width: 100vw;
+    overflow-x: hidden;
+}
+/* flex 설정 클래스 */
+.fll {
+    display: flex;
+}
+
+/* 요소의 초기화 */
+/* html,body,h1,h2,h3,h4,h5,h6,ul,ol,dt,dd,p{
+    margin: 0;
+    padding: 0;
+
+    
+} */
+
+html,body{
+    width: 100vw;
+    height: 100vh;
+    /* overflow: hidden; */
 }
 
 a{
@@ -24,3 +52,4 @@ ul,ol{
 h1,h2,h3,h4,h5,h6{
     font-size: 100%;
 }
+
