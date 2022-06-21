@@ -1,77 +1,107 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>해니 포트폴리오: LOUIS QUATORZE | Enjoy and shop the new Classic and Luxury Collection</title>
+    <title>해니연습3 - 보그 코리아 2022 (Vogue Korea)</title>
+    <!-- 폰티스토 아이콘 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <!-- 제이쿼리 라이브러리 -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <!-- 제이쿼리 UI -->
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- 공통JS -->
+    <script src="js/common.js"></script>
+    <!-- 외부JS삽입 -->
+    <script src="js/main.js"></script>
     <style>
-        .pbox {
-            /* position: absolute; */
-            top: 0;
-            margin: 0 auto;
-            /* padding: 0; */
-            color: yellow;
-            font-size: 21px;
-            font-family: 'Jost', sans-serif;
-            line-height: 50px;
-            width: 100%;
-            height: 233px;
-            padding-top: 320px;
-            
-            
-            /* 줄바꿈방지 */
-            white-space: nowrap;
-            text-align: center;
-            object-fit: cover;
-            background: url(https://cdn.shopify.com/s/files/1/0292/4072/1468/files/LOUISQUATORZE_PASTELWALLET_NEW1_1400x.jpg) no-repeat center/cover;
+        /* 슬라이드 변경 */
+        #slide {
+            display: block;
         }
-        
-        
+
+        #slide li {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* 모든 슬라이드 겹치기 */
+
+            /* 모두 투명하게함! */
+            opacity: 0;
+            /* 트랜지션: 속시이지 */
+            transition: opacity .6s ease-in-out;
+        }
+
+        /* 슬라이드 li에 클래스 on을 줄경우 보임! */
+        #slide li.on {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* 양쪽이동버튼+블릿박스 z-index위로! */
+        .abtn,
+        .indic {
+            z-index: 1;
+            /* 나중것이 위에~! */
+        }
     </style>
-    <script>
-        
-    </script>
 </head>
-<body class="scbar">
+
+<body>
     <!-- 1. 상단영역 -->
     <div id="top">
-        <header class="inbox top">
-            <!-- 1-1. 메인로고 -->
-            <h1 id="logo">
-                <a href="index.html">
-                    <img src="images/logo_w_200x.png" alt="로고">
-                </a>
-            </h1>
-            <!-- 1-2. 탑메뉴 -->
-            <aside class="tmenu">
-                <ul class="icm">
-                    <li>
-                        <a href="#">관심상품 바로가기</a>
-                    </li>
-                    <li>
-                        <a href="#">회원가입 바로가기</a>
-                    </li>
-                    <li>
-                        <a href="#">상품검색 바로가기</a>
-                    </li>
-                    <li>
-                        <a href="#">장바구니 바로가기</a>
-                    </li>
-                </ul>
-            </aside>
+        <header class="ibx top">
+            <!-- 0.상단배너 -->
+            <div class="tbnner">
+                <p>Sign-up for the Newsletter and Get 10% off SECRET CODE!</p>
+            </div>
+            <!-- 1-1.상단메뉴 -->
+            <div class="tmenu">
+                <div class="ooo">
+                    <img src="images/blank.png" alt="공백">
+                </div>
+                <!-- 1-1-2. 로고박스 -->
+                <div class="tLogo">
+                    <h1 class="logo">
+                        <a href="#">
+                            <img src="images/logo_bk_200x.png" alt="메인로고">
+                        </a>
+                    </h1>
+                </div>
+                <!-- 1-1-3. 아이콘 메뉴박스 -->
+                <div class="icm">
+                    <a href="#" class="fi fi-heart">
+                        <span class="ir">
+                            관심상품 바로가기
+                        </span>
+                    </a>
+                    <a href="#" class="fi fi-person">
+                        <span class="ir">
+                            회원가입 바로가기
+                        </span>
+                    </a>
+                    <a href="#" class="fi fi-zoom">
+                        <span class="ir">
+                            상품검색 바로가기
+                        </span>
+                    </a>
+                    <a href="#" class="fi fi-shopping-bag">
+                        <span class="ir">
+                            장바구니 바로가기
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <!-- 1-2.GNB박스 -->
             <nav class="gnb">
                 <ul class="fll">
-                    <li>
-                        <a href="#">NEW IN</a>
-                    </li>
-                    <li>
-                        <a href="#">WOMEN</a>
+                    <li><a href="#">NEW IN</a></li>
+                    <li><a href="#">WOMEN</a>
+                        <!-- 서브메뉴 -->
                         <div class="smenu">
-                            <!-- 서브메뉴제목 -->
-                            <h2></h2>
-                            <ol>
+                            <ol class="smbx">
                                 <li>
                                     <a href="#">BAGS</a>
                                 </li>
@@ -82,7 +112,7 @@
                                     <a href="#">SHOPPER</a>
                                 </li>
                                 <li>
-                                    <a href="#">TOTE & TOP HANDLE</a>
+                                    <a href="#">TOTE &amp; TOP HANDLE</a>
                                 </li>
                                 <li>
                                     <a href="#">ONE SHOULDER</a>
@@ -91,10 +121,10 @@
                                     <a href="#">CROSSBODY</a>
                                 </li>
                                 <li>
-                                    <a href="#">POUCH & CLUTCH</a>
+                                    <a href="#">POUCH &amp; CLUTCH</a>
                                 </li>
                             </ol>
-                            <ol>
+                            <ol class="smbx">
                                 <li>
                                     <a href="#">SMALL LEATHER GOODS</a>
                                 </li>
@@ -117,14 +147,28 @@
                                     <a href="#">CARD HOLDER</a>
                                 </li>
                             </ol>
+                            <ol class="bgbx">
+                                <li class="smimg1">
+                                    <a href="#">
+                                        <img src="images/gnb_w1.jpg" class="simg" alt="여성카달로그1">
+                                        <p>NEW ARRIVALS</p>
+                                    </a>
+                                </li>
+                            </ol>
+                            <ol class="bgbx">
+                                <li class="smimg2">
+                                    <a href="#">
+                                        <img src="images/gnb_w2.jpg" class="simg" alt="여성카달로그2">
+                                        <p>NEW CHEESE</p>
+                                    </a>
+                                </li>
+                            </ol>
                         </div>
                     </li>
-                    <li>
-                        <a href="#">MEN</a>
+                    <li><a href="#">MEN</a>
+                        <!-- 서브메뉴 -->
                         <div class="smenu">
-                            <!-- 서브메뉴제목 -->
-                            <h2></h2>
-                            <ol>
+                            <ol class="smbx">
                                 <li>
                                     <a href="#">BAGS</a>
                                 </li>
@@ -135,13 +179,13 @@
                                     <a href="#">BRIEFCASE</a>
                                 </li>
                                 <li>
-                                    <a href="#">TOTE & CLUTCH</a>
+                                    <a href="#">TOTE &amp; CLUTCH</a>
                                 </li>
                                 <li>
-                                    <a href="#">MESSENGER & CROSSBODY</a>
+                                    <a href="#">MESSENGER &amp; CROSSBODY</a>
                                 </li>
                             </ol>
-                            <ol>
+                            <ol class="smbx">
                                 <li>
                                     <a href="#">SMALL LEATHER GOODS</a>
                                 </li>
@@ -167,13 +211,27 @@
                                     <a href="#">CARD HOLDER</a>
                                 </li>
                             </ol>
+                            <ol class="bgbx">
+                                <li class="smimg1">
+                                    <a href="#">
+                                        <img src="images/gnb_m1.jpg" class="simg" alt="남성카달로그1">
+                                        <p>HOMME COLLECTION</p>
+                                    </a>
+                                </li>
+                            </ol>
+                            <ol class="bgbx">
+                                <li class="smimg2">
+                                    <a href="#">
+                                        <img src="images/gnb_m2.jpg" class="simg" alt="남성카달로그2">
+                                        <p>PARIS COLLECTION</p>
+                                    </a>
+                                </li>
+                            </ol>
                         </div>
                     </li>
-                    <li>
-                        <a href="#">COLLECTION</a>
+                    <li><a href="#">COLLECTION</a>
+                        <!-- 서브메뉴 -->
                         <div class="smenu2">
-                            <!-- 서브메뉴제목 -->
-                            <h2></h2>
                             <ol>
                                 <li>
                                     <a href="#">ALL</a>
@@ -194,7 +252,7 @@
                                     <a href="#">MINI MONTÉ</a>
                                 </li>
                                 <li>
-                                    <a href="#">BIG & BOLD SYMBOL</a>
+                                    <a href="#">BIG &amp; BOLD SYMBOL</a>
                                 </li>
                                 <li>
                                     <a href="#">1980 MONOGRAM</a>
@@ -217,14 +275,10 @@
                             </ol>
                         </div>
                     </li>
-                    <li>
-                        <a href="#">HERITAGE</a>
-                    </li>
-                    <li>
-                        <a href="#">JOURNAL</a>
+                    <li><a href="#">HERITAGE</a></li>
+                    <li><a href="#">JOURNAL</a>
+                        <!-- 서브메뉴 -->
                         <div class="smenu2">
-                            <!-- 서브메뉴제목 -->
-                            <h2></h2>
                             <ol>
                                 <li>
                                     <a href="#">LQ x TZURI GUETTA</a>
@@ -235,11 +289,9 @@
                             </ol>
                         </div>
                     </li>
-                    <li>
-                        <a href="#">FOUNDATION</a>
+                    <li><a href="#">FOUNDATION</a>
+                        <!-- 서브메뉴 -->
                         <div class="smenu2">
-                            <!-- 서브메뉴제목 -->
-                            <h2></h2>
                             <ol>
                                 <li>
                                     <a href="#">PLATFORM-L</a>
@@ -247,178 +299,313 @@
                             </ol>
                         </div>
                     </li>
+                    <li class="sale"><a href="#">SALE</a></li>
                 </ul>
             </nav>
         </header>
     </div>
-    <!-- 2. 메인영역 -->
-    <div id="cont">
-        <main class="inbox cont">
-            <!-- 2-1. 슬라이드박스 -->
-            <div class="sbx">
-                <!-- 2-1-a. 슬라이드박스 컨텐츠 -->
-                <p class="pbox" title="여기를 클릭하세요!">
-                    Gold-bar Bifold card wallet <br>
-                    <button class="btns">SEE MORE</button>
-                </p>
-            </div>
-            <!-- 2-2. 추천 리스트박스 -->
-            <!-- 2-3. 컨텐츠 박스 -->
-            <div id="subx1">
-                <!-- 컨텐츠 이미지 -->
-                <div class="subil">
-                <img src="images/ct1.jpg" alt="컨텐츠이미지1">
-                </div>
-                <!-- 컨텐츠 텍스트 -->
-                <div class="subtbx1">
-                    <div class="stxt">
-                        <h4>Essential for you</h4>
-                        <h3>Mini Monté Collection</h3>
-                        <p>Adorable, comfortable and super cute eye-catching is how we describe our Mini Montè. Go ahead and browse to your heart's content,
-                            if this is new style that speaks to you.</p>
-                    </div>
-                    <div class="slink">
-                        <a href="#">SEE MORE</a>
-                    </div>
-                </div>
-            </div>
-            <!-- 2-4. 컨텐츠 박스 -->
-            <div id="subx2">
-                <!-- 컨텐츠 텍스트 -->
-                <div class="subtbx2">
-                    <div class="stxt">
-                        <h4>Luxurious & Elegant Collection</h4>
-                        <h3>L-QUILTING Collection</h3>
-                        <p>With the signiture letter 'L' of Louis Quatorze embossed and quilted in a smooth leather body, it presents in the form of the iconic golden LQ symbol logo ornament.
-                        </p>
-                    </div>
-                    <div class="slink">
-                        <a href="#">SEE MORE</a>
+    <!-- 2. 컨텐츠영역 -->
+    <div class="bgc">
+        <main class="ibx cont">
+            <section class="pt1 rbx">
+                <div class="rbxIn">
+                    <div class="cbx bgi bg1">
+                        <!--슬라이드-->
+                        <ul id="slide">
+                            <li><img src="images/slide01.jpg" alt="slide"></li>
+                            <li><img src="images/slide02.jpg" alt="slide"></li>
+                            <li><img src="images/slide03.jpg" alt="slide"></li>
+                            <li><img src="images/slide04.jpg" alt="slide"></li>
+                            <li><img src="images/slide05.jpg" alt="slide"></li>
+                        </ul>
+                        <!--이동버튼-->
+                        <a href="#" class="abtn ab1"><img src="images/left_btn.png" alt="왼쪽이동버튼"></a>
+                        <a href="#" class="abtn ab2"><img src="images/right_btn.png" alt="오른쪽이동버튼"></a>
+
+                        <!--블릿버튼-->
+                        <ol class="indic">
+                            <li class="on">
+                                <img src="images/dot1.png" alt="공백">
+                                <img src="images/dot2.png" alt="채움">
+                            </li>
+                            <li>
+                                <img src="images/dot1.png" alt="공백">
+                                <img src="images/dot2.png" alt="채움">
+                            </li>
+                            <li>
+                                <img src="images/dot1.png" alt="공백">
+                                <img src="images/dot2.png" alt="채움">
+                            </li>
+                            <li>
+                                <img src="images/dot1.png" alt="공백">
+                                <img src="images/dot2.png" alt="채움">
+                            </li>
+                            <li>
+                                <img src="images/dot1.png" alt="공백">
+                                <img src="images/dot2.png" alt="채움">
+                            </li>
+                        </ol>
                     </div>
                 </div>
-                    <!-- 컨텐츠 이미지 -->
-                    <div class="subir">
-                        <img src="images/ct2.jpg" alt="컨텐츠이미지2">
+            </section>
+            <section id="gbx" class="pt0 rbx">
+                <div class="rbxIn">
+                    <div class="mtit">
+                        <p>R E C O M M E N D E D</p>
+                    </div>
+                    <!-- 갤러리박스 -->
+                    <div class="gbx cbxo">
+                        <div class="rec item">
+                            <div>
+                                <img src="images/items/1200_0_21bf2aac-f72a-4660-a9f1-281062906dab_1000x.jpg"
+                                    alt="추천아이템1">
+                            </div>
+                            <div>
+                                <h2>Bar &amp; Symbol Bifold card wallet</h2>
+                                <h3>$190.00</h3>
+                            </div>
+                        </div>
+                        <div class="rec item">
+                            <div>
+                                <img src="images/items/LLSP3PB02FI1YE0171_1_1000x.jpg" alt="추천아이템2">
+                            </div>
+                            <div>
+                                <h2>Cheese card wallet</h2>
+                                <h3>$210.00</h3>
+                            </div>
+                        </div>
+                        <div class="rec item">
+                            <div>
+                                <img src="images/items/LLSQ1SO01FF4BL0171_1_1000x.jpg" alt="추천아이템3">
+                            </div>
+                            <div>
+                                <h2>Heritage plain cardholder</h2>
+                                <h3>$145.00</h3>
+                            </div>
+                        </div>
+                        <div class="rec item">
+                            <div>
+                                <img src="images/items/LLSQ1SO01FF4MT0171_8_1000x.jpg" alt="추천아이템4">
+                            </div>
+                            <div>
+                                <h2>(NEW) Monte Trifold half wallet</h2>
+                                <h3>$258.00</h3>
+                            </div>
+                        </div>
+                        <div class="rec item">
+                            <div>
+                                <img src="images/items/LLSQ1SO01FF4PI0171_8_1000x.jpg" alt="추천아이템5">
+                            </div>
+                            <div>
+                                <h2>(NEW) Monte Trifold half wallet</h2>
+                                <h3>$258.00</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 이동버튼 -->
+                    <a href="#" class="iabtn lb">
+                        <img src="images/left_btn.png" alt="왼쪽버튼">
+                    </a>
+                    <a href="#" class="iabtn rb">
+                        <img src="images/right_btn.png" alt="오른쪽버튼">
+                    </a>
+                </div>
+            </section>
+            <section class="pt2 rbx">
+                <div class="rbxIn fbx">
+                    <div class="cbx bgi bg2"></div>
+                    <!-- 콘텐츠 텍스트 박스 -->
+                    <div class="cbxo bgi bgo">
+                        <div class="ctxt">
+                            <h3>Essential for you</h3>
+                            <h2>Mini Monté Collection</h2>
+                            <p>Adorable, comfortable and super cute eye-catching is how we describe our Mini Montè. Go
+                                ahead and browse to your heart's content,
+                                if this is new style that speaks to you.</p>
+                            <a href="#">SEE MORE</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- 2-5. 베스트 리스트박스 -->
-            <!-- 2-6. 컨텐츠 박스 -->
+            </section>
+            <section class="pt2 rbx">
+                <div class="rbxIn fbx">
+                    <!-- 콘텐츠 텍스트 박스 -->
+                    <div class="cbxo bgi bgo">
+                        <div class="ctxt">
+                            <h3>Luxurious &amp; Elegant Collection</h3>
+                            <h2>L-QUILTING Collection</h2>
+                            <p>With the signiture letter 'L' of Louis Quatorze embossed and quilted in a smooth leather
+                                body, it presents in the form of the iconic golden LQ symbol logo ornament.</p>
+                            <a href="#">SEE MORE</a>
+                        </div>
+                    </div>
+                    <div class="cbx bgi bg3"></div>
+                </div>
+            </section>
+            <section id="gbx" class="pt0 rbx">
+                <div class="rbxIn">
+                    <div class="mtit">
+                        <p>B E S T</p>
+                    </div>
+                    <!-- 갤러리박스 -->
+                    <div class="gbx cbxo">
+                        <div class="bt item">
+                            <div>
+                                <img src="images/items/LLHQ1SO01FA9BR0301_2_1000x.jpg"
+                                    alt="베스트아이템1">
+                            </div>
+                            <div>
+                                <h2>Bar &amp; Symbol Bifold card wallet</h2>
+                                <h3>$190.00</h3>
+                            </div>
+                        </div>
+                        <div class="bt item">
+                            <div>
+                                <img src="images/items/LCHO4SO02FB8WI0180_7_1000x.jpg" alt="베스트아이템2">
+                            </div>
+                            <div>
+                                <h2>Cheese card wallet</h2>
+                                <h3>$210.00</h3>
+                            </div>
+                        </div>
+                        <div class="bt item">
+                            <div>
+                                <img src="images/items/LLHO4MG03FA4NA0191_1_800x.jpeg" alt="베스트아이템3">
+                            </div>
+                            <div>
+                                <h2>Heritage plain cardholder</h2>
+                                <h3>$145.00</h3>
+                            </div>
+                        </div>
+                        <div class="bt item">
+                            <div>
+                                <img src="images/items/LLHO4MG04FA4YE0191_1_800x.jpeg" alt="베스트아이템4">
+                            </div>
+                            <div>
+                                <h2>(NEW) Monte Trifold half wallet</h2>
+                                <h3>$258.00</h3>
+                            </div>
+                        </div>
+                        <div class="bt item">
+                            <div>
+                                <img src="images/items/LLHP1SO04FA9TA0171_1_800x.jpg" alt="베스트아이템5">
+                            </div>
+                            <div>
+                                <h2>(NEW) Monte Trifold half wallet</h2>
+                                <h3>$258.00</h3>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 이동버튼 -->
+                    <a href="#" class="iabtn lb">
+                        <img src="images/left_btn.png" alt="왼쪽버튼">
+                    </a>
+                    <a href="#" class="iabtn rb">
+                        <img src="images/right_btn.png" alt="오른쪽버튼">
+                    </a>
+                </div>
+            </section>
+            <section class="pt3 rbx">
+                <div class="rbxIn fbx">
+                    <div class="cbx bgi bg4"></div>
+                    <!-- 콘텐츠 텍스트 박스 -->
+                    <div class="cbxo bgi bgo">
+                        <div class="ctxt">
+                            <h2>Louis Quatorze Boutiques</h2>
+                            <p></p>
+                            <a href="#">Explore More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
     <!-- 3. 하단영역 -->
-    <div id="info">
-        <footer class="inbox info">
-            <div id="cpbx">
-                <ul>
-                <!-- 3-1. 하단로고박스 -->
+    <div id="info" class="bgc">
+        <footer class="ibx info">
+            <!-- 3-1.하단정보 -->
+            <div class="comin">
+                <!-- 3-1-1. 하단로고 -->
                 <div class="blogo">
                     <img src="images/logo_0.png" alt="하단로고">
                 </div>
-                <!-- 3-3. 회사주소박스 -->
-                <div class="addr">
-                    <address>
-                        LOUIS QUATORZE<br>
-                        © 2021 CREATION-L CO., LTD.<br>
-                        807-86-02140<br>
-                        26 HAJEONG-RO, DONGDAEMUN-GU, SEOUL<br>
-                        EMAIL: HELLO@LOUISQUATORZE.COM
-                    </address>
-                </div>
-                <!-- 3-2. sns박스 -->
+                <!-- 3-1-2. 회사주소 -->
+                <address class="addr">
+                    LOUIS QUATORZE<br>
+                    © 2021 CREATION-L CO., LTD.<br>
+                    807-86-02140<br>
+                    26 HAJEONG-RO, DONGDAEMUN-GU, SEOUL<br>
+                    EMAIL: HELLO@LOUISQUATORZE.COM
+                </address>
+                <!-- 3-1-3. SNS -->
                 <div class="sns">
-                    <li>
-                        <a href="https://www.facebook.com/CJCGV" title="페이스북 바로가기" target="_blank">
-                            <span class="ir">페이스북 바로가기</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/CGV_ID"title="트위터 바로가기" target="_blank">
-                            <span class="ir">트위터 바로가기</span>
-                        </a>
-                    </li>
-                     <li>
-                        <a href="https://www.instagram.com/cgv_korea/"title="인스타그램 바로가기" target="_blank">
-                            <span class="ir">인스타그램 바로가기</span>
-                        </a>
-                    </li>
-                </div>
-                </ul>
-            </div>
-            <!-- 3-1. 하단추가정보링크 -->
-            <div id="addlk">
-                <div class="blink1">
-                    <ul class="clb">
-                        <li>
-                            <h3>CINFORMATION</h3>
-                            <div class="clbs">
-                                <ol>
-                                    <li>
-                                        <a href="#">NOTICE</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">CARE GUIDE</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">STOCKIST</a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="blink2">
-                    <ul class="clb">
-                        <li>
-                            <h3>ICUSTOMER SERVICE</h3>
-                            <div class="clbs">
-                                <ol>
-                                    <li>
-                                        <a href="#">CONTACT US</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">FAQ</a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="blink3">
-                    <ul class="clb">
-                        <li>
-                            <h3>LEGAL</h3>
-                            <div class="clbs">
-                                <ol>
-                                    <li>
-                                        <a href="#">TERMS OF SERVICE</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">PRIVACY POLICY</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">REFUND POLICY</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">SHIPPING POLICY</a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bletter">
-                    <ul class="clb4">
-                        <li>
-                            <h3>NEWSLETTER</h3>
-                            <div class="ctx">
-                            <span>RECEIVE FIRST ACCESS TO THE VERY BEST OF LOUIS QUATORZE PRODUCTS, INSPIRATION AND SERVICES.</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <a href="#" class="fi fi-facebook">
+                        <span class="ir">
+                            페이스북
+                        </span>
+                    </a>
+                    <a href="#" class="fi fi-instagram">
+                        <span class="ir">
+                            인스타그램
+                        </span>
+                    </a>
+                    <a href="#" class="fi fi-youtube-play">
+                        <span class="ir">
+                            유튜브
+                        </span>
+                    </a>
                 </div>
             </div>
+            <!-- 3-2.하단링크 -->
+            <ul class="blink lk1">
+                <li>
+                    <h2>CUSTOMER SERVICE</h2>
+                </li>
+                <li>
+                    <a href="#">CONTACT US</a>
+                    <a href="#">FAQ</a>
+                </li>
+            </ul>
+            <ul class="blink lk2">
+                <li>
+                    <h2>INFORMATION</h2>
+                </li>
+                <li>
+                    <a href="#">NOTICE</a>
+                    <a href="#">CARE GUIDE</a>
+                    <a href="#">STOCKIST</a>
+                </li>
+            </ul>
+            <ul class="blink lk3">
+                <li>
+                    <h2>LEGAL</h2>
+                </li>
+                <li>
+                    <a href="#">TERMS OF SERVICE</a>
+                    <a href="#">PRIVACY POLICY</a>
+                    <a href="#">REFUND POLICY</a>
+                    <a href="#">SHIPPING POLICY</a>
+                </li>
+            </ul>
+            <!-- 3-3.뉴스레터 -->
+            <ul class="news">
+                <li>
+                    <h2>NEWS LETTER</h2>
+                </li>
+                <li>
+                    <p>RECEIVE FIRST ACCESS TO THE VERY BEST OF LOUIS QUATORZE PRODUCTS, INSPIRATION AND SERVICES.</p>
+                    <a href="#">SUBSCRIBE</a>
+                </li>
+            </ul>
         </footer>
     </div>
+
+    <!-- 위로가기버튼 -->
+    <a href="#" class="tbtn fi fi-angle-up">
+        <span class="ir">위로가기버튼</span>
+    </a>
+
 </body>
+
 </html>

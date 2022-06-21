@@ -1,38 +1,441 @@
 @charset "utf-8";
-/* 김해니 포트폴리오 공통핵심 CSS - core.css */
-
+/* 보그 PJ 공통핵심 CSS - core.css */
 /* 웹폰트, 공용클래스 */
 
-/************ 1. 웹폰트 : CDN ************/
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400&display=swap');
+/*********** 1. 웹폰트 ***********/
+ /* Jost체 - CDN */
+ @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500&display=swap');
 
-/* font-family: 'Jost', sans-serif; */
+ /* font-family: 'Jost', sans-serif; */
+ /* font-family: 'Jost ExtraLight 200', sans-serif; */
+ /* font-family: 'Jost Light 300', sans-serif; */
+
+ body{
+    font-family: 'Jost', sans-serif;
+    /* letter-spacing: 1.3px; */
+}
+
+/* 
+[ 공통 클래스 이름정의 ]
+1. ibx - inside box 속박스
+2. rbx - ratio box 비율박스
+3. rbxIn - box in ratio box 비율유지 속박스
+4. fbx - flex box 플렉스 디스플레이 박스
+5. pt0, pt1, pt2, pt3 - part0, part1, part2, part3 각 부분박스
+6. cbx - content box 내용박스
+7. bgi - background image 관련 속성
+*/
 
 /************* 2. 공통 class *************/
-    
-/* 스크롤바 디자인 클래스 */
-/* -webkid- 벤더사명(크롬,사파리) 접두어
-(참고: -ms-(ie),-o-(오페라),-moz-(파이어폭스)) */
-.scbar::-webkit-scrollbar{
-    /* 전체 스크롤바 크기변경 */
-    width: 10px;
-    }
-    .scbar::-webkit-scrollbar-thumb{
-    /* 스크롤바 */
-    width: 5px;
-    background-color: #bcbcbc;
-    border-radius: 10px;
-    }
-    .scbar::-webkit-scrollbar-track{
-    /* 스크롤 트랙 */
-    background-color: #fff;
-    
-    outline: 1px solid #bcbcbc;
-    }
+/* 중앙 속박스 */
+.ibx {
+  max-width: 1300px;
+  margin: 0 auto;
+}
 
+
+/* 한개짜리 파티션 박스의 높이값 100% */
+.pt1 .cbx{
+    height: 100%;
+}
+
+/* 플렉스박스 클래스 */
+.fbx{
+    display: flex;
+}
+.fbx .cbx, .cbxo{
+    /* 플렉스된 자식요소 -> 동일비율+높이값 자동채움 */
+    flex: 1;
+}
+
+.rbx{
+    position: relative;
+    /* 비율유지 앱솔루트 속박스의 부모자격 */
+}
+
+/* 가상요소 비율밀기 */
+.rbx::before{
+    content: '';
+    display: block;
+    /* 패딩탑 설정은 각 .pt1, .pt2에서 따로함! */
+}
+
+/* 컨텐츠박스 유형0 - 1개구성 비율밀기 */
+.pt0.rbx::before {
+    padding-top: 40.76%;
+  /* 
+    비율계산
+    1300 : 530 = 100 : x
+    x = 530 * 100 / 1300
+    x = 40.76% 
+    */
+}
+
+/* 컨텐츠박스 유형1 - 1개구성 비율밀기 */
+.pt1.rbx::before {
+  padding-top: 55.69%;
+  /* 
+    비율계산
+    1300 : 724 = 100 : x
+    x = 724 * 100 / 1300
+    x = 55.69%
+  */
+}
+
+/* 컨텐츠박스 유형2 - 2개구성 비율밀기 */
+.pt2.rbx::before {
+    padding-top: 61.53%;
+    /* 
+    비율계산
+    1300 : 800 = 100 : x
+    x = 800 * 100 / 1300
+    x = 61.53% 
+    */
+}
+
+/* 컨텐츠박스 유형3 - 2개구성 비율밀기 */
+.pt3.rbx::before {
+    padding-top: 36.92%;
+    /* 
+    비율계산
+    1300 : 480 = 100 : x
+    x = 480 * 100 / 1300
+    x = 36.92% 
+    */
+}
+
+/* 비율유지 속박스
+- 가상요소 속박스가 패딩탑으로
+밀기때문에 내부 컨텐츠 영역을 잡는다! */
+.rbxIn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/* 콘텐츠 박스 */
+.fbx .cbx{
+    position: relative;
+    /* 부모자격 */
+}
+
+/* 콘텐츠박스 가상요소로 보더 애니구현 */
+.fbx .cbx::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* 나의부모? .cbx */
+
+    /* 크기유지박스 - 보더포함 */
+    box-sizing: border-box;
+    /* 보더설정 */
+    border: 0px solid #fff;
+    transition: border .2s ease-in;
+}
+
+/* .cbx .bd에 마우스 오버시 보더애니 */
+.fbx .cbx:hover::after{
+    border: min(20px,1.6vw) solid #fff;
+}
+
+/* 콘텐츠 텍스트박스  */
+.cbxo .ctxt{
+    top: 0;
+    /* bottom: 0px; */
+    width: 100%;
+    margin-top: min(50px,3.5vw);
+    padding: min(100px,7.5vw);
+    /* 박스크기유지 - 패딩포함 */
+    box-sizing: border-box;
+}
+
+.ctxt h3{
+    font-family: 'Jost', sans-serif;
+    font-size: min(2.3vw,13px);
+    font-weight: 300;
+    letter-spacing: 1.3px;
+
+    padding-bottom: min(2.2vw,30px);
+}
+.ctxt h2{
+    font-family: 'Jost', sans-serif;
+    font-size: min(3vw,20px);
+    font-weight: 400;
+    letter-spacing: 1.3px;
+
+    padding-bottom: min(3vw,30px);
+}
+.ctxt p{
+    font-family: 'Jost', sans-serif;
+    font-size: min(2.3vw,13px);
+    font-weight: 300;
+    line-height: 21px;
+
+    padding-bottom: min(2.2vw,30px);
+}
+.ctxt a{
+    font-family: 'Jost', sans-serif;
+    font-size: min(2.3vw,14px);
+    font-weight: 400;
+    border-bottom: 1px solid #000;
+}
+
+
+
+/* 배경이미지 공통 class */
+.bgi{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* IR(Image Replacement)또는 일반숨김용 클래스 */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 공통적용 배경색 클래스 */
+.bgc{
+    background-color: #f5f5f5;
+}
+
+
+
+
+/* 한개짜리 파티션 박스의 높이값 100% */
+.smimg1 .simg{
+    width: 280px;
+    /* height: 470px; */
+    padding-bottom: 20px;
+}
+.smimg2 .simg{
+    width: 280px;
+    /* height: 470px; */
+    padding-bottom: 20px;
+}
+.bgbx{
+    position: relative;
+    /* 비율유지 앱솔루트 속박스의 부모자격 */
+}
+
+/* 가상요소 비율밀기 */
+.bgbx::before{
+    content: '';
+    display: block;
+}
+
+/* 컨텐츠박스 유형1 - 1개구성 비율밀기 */
+.smenu.bgbx::before {
+  padding-top: 36.15%;
+  /* 
+    비율계산
+    1300 : 470 = 100 : x
+    x = 470 * 100 / 1300
+    x = 36.15%
+  */
+}
+/* 비율유지 속박스
+- 가상요소 속박스가 패딩탑으로
+밀기때문에 내부 컨텐츠 영역을 잡는다! */
+.smimg1{
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+.smimg2{
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin-top: 30px;
+    margin-right: 40px;
+    margin-left: 10px;
+}
+
+/* ************************************* */
+
+#gbx{
+    /* height: 530px; */
+    /* 부모자격: 버튼의 부모 */
+    /* padding: 2% 0; */
+    background-color: #fff;
+}
+
+/* 추천아이템 상단타이틀 */
+.mtit{
+    position: relative;
+    z-index: 1;
+    top: 0;
+    /* bottom: 0px; */
+    width: 100%;
+    text-align: center;
     
-/* 중앙속박스 */
-.inbox{
-    /* width: 1200px; */
+    padding-top: min(100px,4.5vw);
+    /* 박스크기유지 - 패딩포함 */
+    box-sizing: border-box;
+    
+    font-family: 'Jost', sans-serif;
+    font-size: min(3vw,20px);
+    font-weight: 400;
+    /* letter-spacing: 1.3px; */
+}
+.gbx{
+    position: relative;
+    /* 부모자격 */
+    width: min(250px,25vw);
+    max-width: 500px;
+    /* 최대크기지정 */
     margin: 0 auto;
+    /* height: 270px; */
+    /* outline: 4px dashed blue; */
+}
+.gbx::before{
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+/* 갤러리 이미지 박스 */
+.gbx>div{
+    /* outline: 4px dashed blue; */
+    position: absolute;
+    /* 부모는? .gbx */
+    top: 0;
+    margin-top: -40px;
+    width: 100%;
+    /* height: 200px; */
+    
+    /* box-shadow: 6px 6px 5px #333; */
+    /* border-radius: 15px; */
+    overflow: hidden;
+    background-color: #fff;
+    /* 트랜지션 */
+    transition: all .4s ease-in-out;
+}
+/* 갤러리 이미지 */
+.gbx img{
+    width: 100%;
+    
+}
+.gbx img::before{
+    width: 15px;
+    height: 30px;
+    vertical-align: center;
+}
+
+
+/* 왼쪽 끝 */
+.gbx>div:nth-child(1){
+    top: 0;
+    left: -210%;
+    transform: scale(.7);
+    opacity: 0;/* 안보임 */
+}
+/* 왼쪽 바로옆 */
+.gbx>div:nth-child(2){
+    top: 5px;
+    left: -110%;
+    transform: scale(.8);
+    filter: grayscale(50%);
+}
+/* 
+    css 필터 속성: 이미지에 변형효과를 준다
+    filter: 여러가지 필터(그레이스케일, 블러, 세피아, 콘트라스트 등)
+    참조) https://www.w3schools.com/cssref/playit.asp?filename=playcss_filter&preval=none
+
+*/
+/* 중앙이미지 */
+.gbx>div:nth-child(3) {
+    top: 0;
+    left: 0;
+    transform: scale(1);
+}
+/* 오른쪽 바로옆 */
+.gbx>div:nth-child(4){
+    top: 5px;
+    left: 110%;
+    transform: scale(.8);
+    filter: grayscale(50%);
+}
+/* 오른쪽 끝 */
+.gbx>div:nth-child(5){
+    top: 0;
+    left: 210%;
+    transform: scale(.7);
+    opacity: 0;/* 안보임 */
+}
+
+/* 아이템 타이틀 */
+.item>div>h2{
+    /* position: absolute; */
+    top: 0px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    color: #000;
+    /* text-shadow: 2px 2px 2px #666; */
+    /* opacity: 0; */
+    /* 트랜지션 */
+    /* transition: all 1s ease-out; */
+}
+.item>div>h3{
+    margin: 0 auto;
+    padding-top: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    color: lightpink;
+    /* text-shadow: 2px 2px 2px #666; */
+    /* opacity: 0; */
+    /* 트랜지션 */
+    /* transition: all 1s ease-out .5s; */
+}
+
+.gbx>div:nth-child(3)>h2{
+    bottom: 10%;
+    opacity: 1;
+}
+.gbx>div:nth-child(3)>h3{
+    bottom: 3%;
+    opacity: 1;
+}
+
+/* 이동버튼 공통 */
+.iabtn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4%;
+    max-width: 55px;
+    /* 최대크기지정 */
+}
+.iabtn img{
+    width: 100%;
+    /* 높이값은 자동조절 */
+    opacity: .3;
+}
+/* 오른쪽버튼 */
+.rb{
+    right: 7%;
+}
+/* 왼쪽버튼 */
+.lb{
+    left: 7%;
 }

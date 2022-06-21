@@ -1,108 +1,135 @@
 @charset "utf-8";
-/* 김해니 포트폴리오 메인 페이지 CSS - main.css */
+/* 보그 PJ 메인페이지 CSS - main.css */
 
+/* 외부CSS 합치기 */
 @import url(reset.css);
 @import url(core.css);
 @import url(common.css);
 
-body{
-    background-color: rgb(147, 100, 198);
+/* 공사중 박스표시 */
+/* body *{
+    outline: 1px dashed grey;
+} */
+
+/* 개별 배경이미지 */
+/* 1번 - 1개 */
+.bg1{
+    /* background-image: url(../images/slide01.jpg); */
 }
 
-/* 공사중표시 */
-body *{
-    outline: 1px dotted lime;
+/* 2번 - 2칸 */
+.bg2{
+    background-image: url(../images/ct1.jpg);
 }
 
-html,body{
-    width: 100vw;
-    height: 100vh;
-    /* overflow: hidden; */
+/* 3번 - 2칸 */
+.bg3{
+    background-image: url(../images/ct2.jpg);
 }
 
-/****************** 2. 메인영역 ******************/
-
-/* 2-3. 컨텐츠 박스 */
-#subx1 {
-    /* position: relative; */
-    width: 100%;
-    height: 800px;
-    background-color: #fff;
-    
+/* 4번 - 2칸 */
+.bg4{
+    background-image: url(../images/ct3.jpg);
 }
 
-/* 컨텐츠 이미지 */
-.subil img{
-    width: 50%;
-    height: 800px;
+/* 콘텐츠 텍스트박스 빈칸 배경이미지 */
+.bgo{
+    background-image: url(../images/blank.png);
+}
+
+
+#container>section {
+    /*슬라이드부모*/
+    position: relative;
+    width: 913px;
+    height: 564px;
     float: left;
+    overflow: hidden;
+    /*넘치는 자식요소 숨기기*/
+    /*    border: 2px solid red;*/
+    box-sizing: border-box;
 }
 
-/* 컨텐츠 텍스트 */
-.subtbx1 {
-    width: 50%;
-    height: 62.8vw;
-    float: right;
-    
-}
+#slide {
+    display: flex;
+    /* 플렉스박스!!! */
 
-.stxt{
-    width: 40vw;
-    
-    
-    margin-top: 17vw;
-    font-family: 'Jost', sans-serif;
-    font-size: 13px;
-    line-height: 22px;
-    padding: 30px 40px;
-    
-}
-.stxt h4{
-    font-size: 12px;
-    line-height: 20px;
-}
-
-.stxt h3{
-    font-size: 20px;
-    line-height: 20px;
-    padding: 10px;
-}
-
-
-.slink{
-    width: 400px;
-    
-    padding: 0 60px;
-    text-decoration: underline;
-
-}
-
-
-/* ------------- */
-
-
-
-#subx2 {
-    /* position: relative; */
+    /*사진을 싸고 있는 슬라이드*/
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 790px;
-    background-color: #fff;
-    
-}
-/* 컨텐츠 텍스트 */
-.subtbx2 {
-    width: 50%;
-    height: 62vw;
-    background-color: #fff;
-    float: left;
-    display: inline;
-    
+    height: 100%;
 }
 
-/* 컨텐츠 이미지 */
-.subir img{
-    width: 50%;
-    height: 790px;
-    float: right;
+#slide li {
+    flex-shrink: 0;
+    /* 부모박스크기만큼 줄어들지 않음 -> 0 */
+    flex-basis: 100%;
+    /* 가로크기를 부모박스 크기에 맞춤! */
+    /* height 값은 flex박스 자식요소에서
+    등분할시 자동 100%임! */
 }
 
+#slide li img {
+    /*이미지는 박스에 맞춤!*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 이미지 비율유지 채우기! */
+}
+
+/*이동버튼*/
+.abtn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    /*Y축 중앙이동*/
+}
+
+/*왼쪽버튼*/
+.ab1 {
+    left: -70px;
+    transform: scale(.2);
+}
+
+/*오른쪽버튼*/
+.ab2 {
+    right: -70px;
+    transform: scale(.2);
+}
+
+/*블릿버튼*/
+.indic {
+    display: flex;
+    /* 플렉스박스 */
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+}
+
+.indic li {
+    width: 25px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.indic li img {
+    position: absolute;
+    width: 10px;
+    /*이미지 겹치게*/
+}
+
+.indic li img:last-child {
+    /*회색이미지만 투명하게*/
+    opacity: 0;
+}
+
+/*회색블릿이미지가 보이게하는 class*/
+.indic li.on img:last-child {
+    /*회색이미지만 투명하게*/
+    opacity: 1;
+    /*우선적용!*/
+}
+
+/********************************************/
