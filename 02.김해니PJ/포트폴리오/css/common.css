@@ -1,184 +1,180 @@
 @charset "utf-8";
-/* 포트폴리오 공통 디자인 CSS - common.css */
-/* 상단영역, 하단영역 등 공통디자인 */
+/* 보그 PJ 공통 CSS - common.css */
+/* 상단,하단 공통 모듈 */
 
-/* 공통 글씨체 : 나눔고딕 */
-body{
-    font-family: 'Jost', sans-serif;
+/* 부드러운 스크롤이동 -> JS 부드러운스크롤시 주석! */
+/* html{
+    scroll-behavior: smooth;
+} */
+
+/**************** 1. 상단영역 ****************/
+#top{
+    position: relative;
+    z-index: 999;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.top{
+    min-height: 160px;
+}
+/* 0. 상단배너 */
+.tbnner{
+    height: 31px;
+    background-color: #000;
+    text-align: center;
+    padding-top: 13px;
+}
+.tbnner p{
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 300;
     letter-spacing: 1.3px;
 }
-
-/************** 1. 상단영역 **************/
-.top{
-    position: relative;
-    /* 부모자격 - .gnb */
-    /* GNB 하위메뉴가 위에 오도록
-    아래쪽 .cont박스 보다 위! */
-    /* z-index: 999; */
-    /* height: 115px; */
-    /* background-color: #ffffff;
-    color: #000; */
-}
-
-.top:hover{
-    background-color: #bababa;
-    color: #000;
-    border-bottom: 1px solid #e4e4e4
-}
-
-/* 1-1. 메인로고 */
-#logo{
-    margin: 0;
-    padding-top: 17px;
-    padding-bottom: 13px;
-    text-align: center;
-}
-
-/* 로고이미지 */
-#logo img{
-    width: 200px;
-    height: auto;
-    border-style: none;
-    vertical-align: top;
-    /* a요소나 div등으로 이미지를 싸면
-    하단에 4px공백이 들어감. 이것을 없애려면
-    vertical-align값을 설정하면 해결됨!
-    값으로 top/middle/bottom 뭘써도 됨 */
-}
-
-/* 1-2. 탑메뉴(ICM) */
+/* 1-1. 상단메뉴 */
 .tmenu{
-    position: relative;
-    /* 부모자격! */
-  }
-
-/* 내용 리스트박스 */
-.tmenu ul {
-  position: absolute;
-  top: -50px;
-  right: 0;
-  padding: 0 50px;
-  /* 부모는? .tmenu */
-
-  /* 하단의 코딩은 앱솔루트 이전 작업 - 모두 불필요! */
-  /* 오른쪽 끝으로! */
-  /* float: right; */
-  /* 마진탑으로 위로 올라감 
-    부모박스의 높이값은 0이됨! 왜? 빠져나가니까! */
-  /* margin-top: -50px; */
-}
-
-.tmenu li {
-    /* 왼쪽방향 옆으로 흐르게 */
-    float: left;
-}
-
-/*  탑메뉴 상위 li */
-.tmenu>ul>li {
-    padding: 0 5px;
-}
-
-/* sns 메뉴 리스트 */
-.icm a{
-    display: none; /* 임시숨김 */
-}
-
-.icm li{
-    width: 30px;
-    height: 30px;
-    outline: 1px dotted blue;
-    /* 배경이미지로 sns아이콘 넣기 */
-    background: url(../images/icons.png) no-repeat;
-    margin: 0px 2px;
-}
-
-/* 관심상품 바로가기 */
-.icm li:first-child{
-    background-position: 3px -1px;
-}
-
-/* 회원가입 바로가기 */
-.icm li:nth-child(2){
-    background-position: -38px -1px;
-}
-
-/* 상품검색 바로가기 */
-.icm li:nth-child(3){
-    background-position: -82px -1px;
-}
-/* 구매하기 바로가기 */
-.icm li:last-child{
-    background-position: -124px -1px;
-}
-
-/*********** 1-3. 전체메뉴(GNB) ************/
-
-/* flex 설정 클래스 */
-.fll {
+    /* 플렉스박스 */
     display: flex;
-}
-.gnb {
-    position: relative;
-    /* 부모자격 - 서브메뉴 배경 가상요소 */
-    /* background-color: #4571ff; */
-    padding-bottom: 12px;
-}
-
-
-.gnb>ul {
-    width: 840px;
+    max-width: 1220px;
+    height: 76px;
     margin: 0 auto;
-    /* 크기를 가진 블록박스 가로중앙 */
 }
-.gnb>ul>li {
-    /* width: 120px; */
+/* 플렉스 박스 직계자식 div */
+.tmenu>div{
+    /* 등분할박스 + 높이값 자동채움 */
+    flex: 1;
+}
+
+/* 공백박스 */
+.ooo{
     text-align: center;
+    margin: 20px;
+}
+.ooo img{
+    height: 100%;
+    width: 100px;
 }
 
-/* a요소 */
-.gnb>ul>li>a {
-    /* a는 inline요소이므로 크기적용안됨! */
-    /* 그래서 block으로 변경! */
-    display: block;
-    width: 115px;
-    line-height: 35px;
-    font-size: 12px;
+/* 로고박스 */
+.logo{
+    text-align: center;
+    margin: min(20px,5vw);
+}
+.logo img{
+    width: min(200px,25vw);
+}
+.icm{
+    display: flex;
+    /* 플렉스박스 수평방향 오른쪽 끝 정렬 */
+    justify-content: flex-end;
+}
+/* 아이콘 메뉴박스 */
+.icm a{
+    width: 20px;
+    height: 20px;
+    /* .fi 설정에 inline-block되어 있음
+    (크기적용됨!) */
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px;
+    vertical-align: top;
 
-    color: #fff;
-    text-decoration: none;
-    /* 글자색, 밑줄은 반드시 a요소에서 셋팅! */
+    /* 위치조정 */
+    margin-top: 27px;
+    margin-right: min(26px,2.7vw);
+
+    opacity: .2;
 
     /* 트랜지션: 속시이지 */
-    transition: all .4s;
+    transition: opacity .2s;
 }
+/* a요소 오버시 */
+.icm a:hover{
+    opacity: 1;
+}
+
+/* 하트 아이콘 조정 */
+.icm a.fi-heart{
+    font-size: 18px;
+    transform: scaleY(1.1);
+    display: inline-block;
+}
+/* 사람 아이콘 조정 */
+.icm a.fi-person{
+    transform: scaleX(1.15);
+    display: inline-block;
+}
+/* 사람 아이콘 조정 */
+.icm a.fi-shopping-bag{
+    transform: scaleX(1.1);
+    display: inline-block;
+}
+/* GNB메뉴 */
+.gnb{
+    /* 글자설정 */
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    /* line-height: 40px; */
+    padding: 0 30px;
+}
+.gnb>ul{
+    /* 플렉스박스 */
+    display: flex;
+    /* 랩핑설정 */
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+/* 리스트요소 */
+.gnb li{
+    text-align: center;
+    padding: 5px;
+    padding-bottom: 15px;
+}
+
+.gnb>ul>li>a{
+    padding: 5px 15px 14px;
+}
+
+/* .sale 글자색 변경 */
+.gnb .sale a{
+    color: red;
+}
+
 
 /* li에 마우스 오버시 a요소 디자인 변경 */
 .gnb>ul>li:hover>a {
     /* background-color: #d5eeff; */
-    color: navy;
+    font-weight: 400;
+    color: #70c6ff;
+    transition: color .2s linear;
+    border-bottom: 3px solid #ccc;
 }
 
-
 /* 서브메뉴 -1 */
+/* 상위 ul에 마우스 오버시 서브메뉴 전체보이기 */
+
 .smenu {
     position: absolute;
     /* top값을 주지않아서 젠틀! */
     left: 0;
     /* transform: translateX(-50%); */
     /* left를 절반 보내고 자기크기의 절반 중앙이동함! */
+    /* 랩핑설정 */
+    flex-wrap: wrap;
     display: flex;
     /* 자식인 h2,ol이 옆으로 흐르게함! */
     width: 100%;
     /* 특정가로크기설정 */
     height: 0;
     top: 100%;
-    /* padding: 20px 0px; */
-    overflow: auto;
     text-align: left;
     overflow: hidden;
     /* 높이값 0, 넘치는 자식요소 숨기기로 서브안보이게함! */
-    background-color: #bababa;
-    border-top: 1px solid #e4e4e4;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
 
 
 
@@ -187,38 +183,42 @@ body{
 }
 
 /* 중분류메뉴 */
-.smenu ol li:first-child a{
+.smenu .smbx li:first-child a{
     left: 0;
-    display: inline;
-    font-weight: bold;
+    font-weight: 300;
     font-size: 12px;
-    color: rgb(191, 41, 41);
+    text-align: left;
+    color: #797979;
+    padding-bottom: 10px;
 }
 
  /* 상위 ul에 마우스 오버시 서브메뉴 전체보이기 */
  .gnb>ul>li:hover .smenu {
-    height: 560px;
+    min-height: 550px;
 }
 
-/* 서브메뉴 ol */
-.smenu ol {
-    padding: 38px 10px;
+/* 서브메뉴 ol -> .smbx */
+.smbx {
+    padding: 35px 5px 0 50px;
 }
+
+/* 서브메뉴 li */
+.smbx li {
+    margin: -7px;
+}
+
 
 /* 서브메뉴 a */
-.smenu a {
+.smbx a {
     display: block;
-    width: 150px;
-    line-height: 28px;
+    width: 176px;
+    line-height: 15px;
     font-size: 12px;
     text-align: left;
-    margin: 0px 40px;
-
-    /* padding: 0 10px;
-    margin: 0 5px; */
+    /* margin: 0px 15px; */
 
     /* a요소 필수 재설정! 글자색+밑줄해제 */
-    color: navy;
+    color: #000;
     text-decoration: none;
 
     /* 트랜지션: 속시이지 */
@@ -227,17 +227,14 @@ body{
 
 /* 서브메뉴 a에 오버시 */
 .smenu a:hover {
-    color: #ff5411;
+    color: #ccc;
 }
 
-/* 각 서브메뉴별 배경이미지 넣기 */
-/* .gnb>ul>li:nth-child(2) .smenu{
-    background: url(../images/gnb_w1.jpg) no-repeat right 20px/auto 150px;
-}
-.gnb>ul>li:nth-child(3) .smenu{
-    background: url(../images/gnb_m1.jpg) no-repeat right 20px/auto 150px;
-} */
 
+/* 서브메뉴 이미지박스 텍스트 */
+.smimg p{
+    text-align: center;
+}
 
 /* 서브메뉴 -2 */
 .smenu2 {
@@ -256,8 +253,8 @@ body{
     text-align: left;
     overflow: hidden;
     /* 높이값 0, 넘치는 자식요소 숨기기로 서브안보이게함! */
-    background-color: #bababa;
-    border-top: 1px solid #e4e4e4;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
 
 
 
@@ -268,21 +265,16 @@ body{
 하위메뉴박스 높이값 복원하기(트랜지션) */
 /* 네번째메뉴 */
 .gnb > ul > li:nth-child(4):hover .smenu2 {
-    height: 405px;
+    height: 431px;
 }
 /* 여섯번째메뉴 */
 .gnb > ul > li:nth-child(6):hover .smenu2 {
     height: 95px;
  }
 /* 마지막째메뉴 */
-.gnb > ul > li:last-child:hover .smenu2 {
+.gnb > ul > li:nth-child(7):hover .smenu2 {
     height: 70px;
  }
-        
-        /* 상위 ul에 마우스 오버시 서브메뉴 전체보이기 */
- /* .gnb>ul>li:hover .smenu2 {
-    height: 405px;
-} */
 
 /* 서브메뉴 ol */
 .smenu2 ol {
@@ -297,14 +289,14 @@ body{
 /* 서브메뉴 a */
 .smenu2 a {
     display: block;
-    width: 150px;
+    width: 164px;
     line-height: 28px;
     font-size: 12px;
     text-align: left;
     margin: 0px 15px;
 
     /* a요소 필수 재설정! 글자색+밑줄해제 */
-    color: navy;
+    color: #000;
     text-decoration: none;
 
     /* 트랜지션: 속시이지 */
@@ -313,123 +305,153 @@ body{
 
 /* 서브메뉴 a에 오버시 */
 .smenu2 a:hover {
-    color: #ff5411;
+    color: #ccc;
 }
 
-/****************** 3. 하단영역 ******************/
-#info{
-    position: relative;
-    /* 부모자격 - .sns */
-    height: 330px;
+/* 슬림 상단 디자인 변경 */
+/* #top 최상위 박스에 class="on"을 줘서 적용 */
+
+#top.on {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    /* 이미지 자신은 왼쪽, 
-    글자는 오른쪽에 흐르게함 */
-    float: left;
-    padding: 35 65px;
     background-color: #fff;
 }
 
-#cpbx {
-    color: #7a7a7a;
-    width: 230px;
-    padding: 36px 65px;
-    float: left;
-    
+/* 속박스 */
+#top.on .top{
+    min-height: 116px;    
+}
+/* 상단메뉴 숨기기 */
+#top.on .tbnner{
+    display: none;
 }
 
-#info .blogo img {
-    width: 25.5px;
-    padding-bottom: 15px;
-}
+/**************** 2. 하단영역 ****************/
+.info{
+    min-height: 305px;
 
-address {
-    width: 230px;
-    font-family: 'Jost', sans-serif;
-    font-style: normal;
-    font-size: 11px;
-    line-height: 20px;
-    
-    margin-bottom: 30px;
-}
-
-/* 3-2. sns 박스 */
-.sns{
-    top: 35px;
-    right: 20px;
     /* 플렉스박스 */
     display: flex;
-}
-.sns li{
-    width: 34px;
-    height: 34px;
-    background: url(../images/sprites_logo.png) no-repeat;
-    margin: 0 3px;
-    /* 필터: 흑백적용 */
-    filter: grayscale(100%);
-}
-/* 오버시 칼라 */
-.sns li:hover{
-    filter: grayscale(0%);
+    /* 자동줄바꿈 */
+    flex-wrap: wrap;
+
+    background-color: #f7f7f7;
+    padding: 50px;
+    /* 크기유지 - 패딩포함 */
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+    letter-spacing: 1.3px;
 }
 
-/* 페이스북 */
-.sns li:nth-child(1){
-    background-position: -508px -429px;
+.comin{
+    width: min(300px,50vw);
+    margin: 0 5px 0 25px;
+    padding-top: 15px;
+    padding-bottom: 40px;
 }
-/* 트위터 */
-.sns li:nth-child(2){
-    background-position: -550px -429px;
+/* 3-1-1. 하단로고 */
+.blogo{
+    text-align: left;
 }
-/* 인스타그램 */
-.sns li:nth-child(3){
-    background-position: -593px -429px;
+.blogo img{
+    width: 25.5px;
+}
+/* 회사주소 */
+.addr{
+    color: #797979;
+    text-align: left;
+    line-height: 18px;
+    font-size: 11.5px;
+    font-weight: 300;
+    /* 기본이탤릭 해제 */
+    font-style: normal;
+    margin: 20px 0 10px;
 }
 
-/* sns a링크 확장 */
-.sns a{
-    display: none;
-    width: 100%;
-    height: 100%;   
+/* 하단링크 */
+.blink{
+    margin: 0 12px 0 12px;
+    padding-top: 15px;
+    padding-bottom: 40px;
 }
-
-
-.blink1 {
-    float: left;
+.blink h2{
+    color: #000;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0 6px 15px;
+}
+.blink a{
+    display: block;
+    color: #797979;
     font-size: 12px;
-    padding: 30px 30px;
-    
+    font-weight: 300;
+    line-height: 23px;
+    margin: 0 6px;
 }
-.blink2 {
-    float: left;
-    font-size: 12px;
-    padding: 30px 30px;
-}
-.blink3 {
-    float: left;
-    font-size: 12px;
-    padding: 30px 30px;
-
-}
-ol>li a{
-    color: #7a7a7a;
-    font-size: 11px;
-    line-height: 22px;
-    /* padding: 35px 0px; */
+.blink a:hover{
+    color: #000;
 }
 
-.clb h3{
-    padding-bottom: 7px;
+.news{
+    width: min(300px,50vw);
+    margin: 0 15px 0 12px;
+    padding-top: 15px;
+    padding-bottom: 40px;
+}
+.news h2{
+    color: #000;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0 6px 15px;
+}
+.news p{
+    color: #797979;
+    font-size: 11.5px;
+    font-weight: 300;
+    line-height: 18px;
+    margin: 0 6px;
+}
+.news a{
+    color: #797979;
+    font-size: 12px;
+    font-weight: 300;
+    margin: 0 6px;
 }
 
-.bletter {
-    float: left;
-    width: 260px;
+/* 위로가기버튼 */
+.tbtn {
+    position: fixed;
+    bottom: -35px;
+    /* 아래쪽에 나가있음 */
+    right: 75px;
+    width: 48px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #333;
+    border-radius: 4px 4px 0 0;
+    color: #fff;
+    z-index: 9999;
     font-size: 12px;
-    padding: 30px 30px;
-}
-.ctx {
-    color: #7a7a7a;
-    font-size: 11px;
-    margin-top: 20px;
-    line-height: 20px;
-}
+    opacity: 0;
+    /* 투명 */
+ 
+    /* 트랜지션: 속시이지 */
+    transition: background-color .3s,
+       opacity .3s;
+ }
+ 
+ /* 탑메뉴 클래스on상태 */
+ .tbtn.on {
+    opacity: 1;
+    /* 나타나기 */
+    bottom: 0;
+    /* 올라옴! */
+ }
+ 
+ /* 탑메뉴 마우스 오버시 */
+ .tbtn:hover {
+    background-color: #ccc;
+ }

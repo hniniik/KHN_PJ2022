@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>01.가로방향 배너 슬라이드</title>
+    <!-- 폰티스토 아이콘 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- 외부JS삽입 -->
+    <script src="js/main.js"></script>
+    <style>
+        /* 플렉스 방향 변경 덮어쓰기 */
+        #slide{
+            flex-direction: column;
+        }
+
+        /* 이동버튼 배치 변경하기 */
+        .abtn {
+            left: 94.5%;
+            transform: translate(-50%) rotate(90deg) scale(-.25);
+        }
+        .ab1{ /* 왼쪽버튼 */
+            top: 400px;
+        }
+        .ab2{ /* 오른쪽버튼 */
+            bottom: 400px;
+            
+            /* 기존값 해제 */
+            top: auto; 
+            right: auto; 
+        }
+    </style>
+</head>
+
+<body>
+    <section id="container">
+        <!--탑영역-->
+        <header><img src="images/index_01.png" width="1381" height="222" alt="메뉴"></header>
+        <!--슬라이드 배너 영역-->
+        <section>
+            <!--슬라이드-->
+            <ul id="slide">
+                <li><img src="images/slide01.png" alt="slide"></li>
+                <li><img src="images/slide02.png" alt="slide"></li>
+                <li><img src="images/slide03.png" alt="slide"></li>
+                <li><img src="images/slide04.png" alt="slide"></li>
+                <li><img src="images/slide05.png" alt="slide"></li>
+            </ul>
+            <!--이동버튼-->
+            <a href="#" class="abtn ab1"><img src="images/left_btn.png" alt="왼쪽이동버튼"></a>
+            <a href="#" class="abtn ab2"><img src="images/right_btn.png" alt="오른쪽이동버튼"></a>
+
+            <!--블릿버튼-->
+            <ol class="indic">
+                <li class="on">
+                    <img src="images/dot1.png" alt="공백">
+                    <img src="images/dot2.png" alt="채움">
+                </li>
+                <li>
+                    <img src="images/dot1.png" alt="공백">
+                    <img src="images/dot2.png" alt="채움">
+                </li>
+                <li>
+                    <img src="images/dot1.png" alt="공백">
+                    <img src="images/dot2.png" alt="채움">
+                </li>
+                <li>
+                    <img src="images/dot1.png" alt="공백">
+                    <img src="images/dot2.png" alt="채움">
+                </li>
+                <li>
+                    <img src="images/dot1.png" alt="공백">
+                    <img src="images/dot2.png" alt="채움">
+                </li>
+            </ol>
+        </section>
+        <!--사이드 영역-->
+        <aside><img src="images/index_03.png" width="467" height="564" alt="03"></aside>
+        <!--하단영역-->
+        <footer>
+            ㈜ 카카오 VX │ 회사소개 │ 채용정보 │ 이용약관 │ 개인정보처리방침 │ 고객센터<br>
+            <br>
+            사업자등록번호 144-81-03460 │ 통신판매업 신고번호 제2012-경기성남-1139호 │ 주소 경기도 성남시 분당구 판교로 228번길 17 판교세븐벤처밸리2 제 1동 4층<br>
+            
+            대표이사 문태식 │ 개인정보관리책임자 박진홍 │ 고객센터 1666-1539 shop@kakaofriendsgolf.com │ 운영시간 월~금(평일) 10시 30분~18시<br>
+            
+            Copyright © Kakao VX Corp. All rights reserved.
+        </footer>
+    </section>
+</body></html>
